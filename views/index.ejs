@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Habitify - Build new habits</title>
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <!-- <link rel="stylesheet" href="../assets/fontawesome/css/all.css"> -->
+</head>
+
+<body>
+    <div id="main">
+        <br><br><br>
+        <!-- add habit button -->
+        <div id="addhabit" onclick="showHabitAdd()">
+            <i class="far fa-plus-square"></i> &nbsp;+Add a new habit
+        </div>
+
+        <!-- new habit creatiion <div> -->
+        <div class="new-habit-div">
+            <input type="text" id="newHabitName" placeholder="Enter name..">
+            <select name="freq" id="newHabitFreq">
+                <option value="7">Daily</option>
+                <option value="1">Once in a week</option>
+                <option value="2">Twice in a week</option>
+                <option value="3">Thrice in a week</option>
+                <option value="4">4 times in a week</option>
+                <option value="5">5 times in a week</option>
+                <option value="6">6 times in a week</option>
+            </select>
+            <button id="submit_new_habit" onclick="addNewHabit()">Create habit</button>
+        </div>
+
+        <!-- ejs for loop to dynamically show all the habits! -->
+        <% for(let i = 0;i<habits.length;i++){%>
+        <div class="listitem" id="post-<%= habits[i]._id %>"
+            onclick="window.location.href='/habit?id=<%=habits[i]._id%>'">
+            <div class="listtitle"><%= habits[i].name %> <button class="delbtn"
+                    onclick="deletehabit(event ,'<%= habits[i]._id %>')">delete
+                </button> </div>
+                <!-- stats of the habit -->
+            <div class="stats">
+                <!-- <span class="best">Best: <%= habits[i].longeststreak %> </span> -->
+                <span class="freq">Regularity: <%= habits[i].freq %> days in a week</span>
+            </div>
+        </div>
+        <%}%>
+
+
+    </div>
+    <script src ="../assets/js/index.js"></script>
+</body>
+
+</html>

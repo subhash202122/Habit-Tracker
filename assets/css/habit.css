@@ -1,0 +1,22 @@
+.history{
+    background-color: #313038;
+    width: 500px;
+    padding:10px;
+    border-radius: 10px;
+}
+
+#historyspan{
+    color: whitesmoke;
+    font-weight: 200;
+    margin-left: 14px;
+}
+
+.calendar-div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.daynumber{
+    width: 50px;
+    cursor: pointer;
+}
